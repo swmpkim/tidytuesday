@@ -39,9 +39,6 @@ ggsave("output/wk11_exploratoryplot.png", width = 6, height = 8, units = "in")
 
 
 
-
-
-
 ggplot(dat2, aes(x = country, y = population_share)) +
   geom_col() +
   facet_wrap(~confederation, ncol = 1, scales = "free") +
