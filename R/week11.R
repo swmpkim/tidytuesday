@@ -91,3 +91,34 @@ ggplot(dat2, aes(y = tv_audience_share, x = population_share,
 ggsave("output/wk11_audshare-v-popshare_log.png")
 
 
+
+## using RColorBrewer
+## and a square root scale
+ggplot(dat2, aes(y = tv_audience_share, x = population_share, 
+                 color = confederation)) +
+    geom_point(size = 2.5, alpha = 0.7) +
+    geom_text_repel(data = subset(dat2, population_share > 1.9), 
+                    aes(label = country)) +
+    scale_y_sqrt() +
+    scale_x_sqrt() +
+    scale_color_brewer(type = "qual", palette = "Dark2") +
+    labs(title = "Do countries with higher populations watch more soccer?", 
+         subtitle = "top 10 countries from each confederation by tv audience share",
+         x = "population share",
+         y = "tv audience share") +
+    theme_minimal()
+
+
+## do that on unfiltered data
+ggplot(dat, aes(y = tv_audience_share, x = population_share, 
+                 color = confederation)) +
+    geom_point(size = 2.5, alpha = 0.7) +
+    geom_text_repel(data = subset(dat2, population_share > 1.5), 
+                    aes(label = country)) +
+    scale_y_sqrt() +
+    scale_x_sqrt() +
+    scale_color_brewer(type = "qual", palette = "Dark2") +
+    labs(title = "Do countries with higher populations watch more soccer?", 
+         x = "population share",
+         y = "tv audience share") +
+    theme_minimal()
