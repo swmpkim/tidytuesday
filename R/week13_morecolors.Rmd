@@ -74,7 +74,10 @@ p <- ggplot(dat2, aes(x = alc_type, y = value, fill = alc_type)) +
          y = "# servings")
 ```
 
-
+Default color palette
+```{r}
+p
+```
 
 
 ### RColorBrewer
